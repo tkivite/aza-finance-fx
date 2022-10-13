@@ -28,8 +28,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_13_124509) do
     t.string "outCurrency"
     t.string "string"
     t.string "dateOfTransaction"
+    t.bigint "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_transactions_on_customer_id"
   end
 
+  add_foreign_key "transactions", "customers"
 end
