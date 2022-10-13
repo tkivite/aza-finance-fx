@@ -5,7 +5,6 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
       t.string :inCurrency
       t.decimal :outAmount
       t.string :outCurrency
-      t.string :string
       t.string :dateOfTransaction
       t.references :customer, null: false, foreign_key: true
 
