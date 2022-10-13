@@ -19,23 +19,23 @@ def seed_customers
   end
  
   
-  def seed_transactions
+def seed_transactions
     customers = Customer.all 
     amount = 100 
     customers.each do |customer|
-      5.times do
-       p = Transaction.create(
-            inAmount: amount,
-            inCurrency: 'KES',
-            outAmount: amount+10,
-            outCurrency: 'USD',
-            dateOfTransaction: '20221017',
-            customer_id: customer.id,
-        ) 
-        amount++      
-      end
+        5.times do
+            p = Transaction.create(
+                in_amount: amount,
+                in_currency: 'KES',
+                out_amount: amount+10,
+                out_currency: 'USD',
+                date_of_transaction: '20221017',
+                customer_id: customer.id
+            )  
+        end  
     end
-  end
+end
 
-  seed_customers
+
+seed_customers
 seed_transactions

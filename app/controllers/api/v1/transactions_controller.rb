@@ -6,11 +6,11 @@ class Api::V1::TransactionsController < ApplicationController
 
   def create
     transaction = Transaction.new(
-      inAmount: params[:in_amount],
-      inCurrency: params[:in_currency],
-      outAmount: params[:out_amount],
-      outCurrency: params[:out_currency],
-      dateOfTransaction: params[:date_of_transaction],
+      in_amount: params[:in_amount],
+      in_currency: params[:in_currency],
+      out_amount: params[:out_amount],
+      out_currency: params[:out_currency],
+      date_of_transaction: params[:date_of_transaction],
       customer_id: params[:customer_id],
     )
     if transaction.save
