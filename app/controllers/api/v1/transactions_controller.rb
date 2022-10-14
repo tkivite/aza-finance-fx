@@ -16,17 +16,14 @@ class Api::V1::TransactionsController < ApplicationController
     if transaction.save
       render json: transaction, status: 200
     else
-      render json: {error: "Error creating transaction"}
+      render json: {error: transaction.errors.objects.first.full_message}, status: 422
     end
   end
 
 
   def show
     transaction = Transaction.find_by(id: params[:id])
-    if transaction.save
-      render json: transaction, status: 200
-    else
-      render json: {error: "Error creating transaction"}
-    end
+    render json: transaction, status: 200
+   
   end
 end
