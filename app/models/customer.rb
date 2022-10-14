@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
+  self.implicit_order_column = 'created_at'
   # model association
   has_many :transactions, dependent: :destroy
 

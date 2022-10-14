@@ -1,6 +1,18 @@
 class Api::V1::TransactionsController < ApplicationController
   def index
-    transactions = Transaction.all
+    # transactions = Transaction.all
+    transactions = Transaction.joins(:customer)
+    .order(created_at: :desc)
+    .select(
+      "transactions.id,
+      transactions.in_amount,
+      transactions.in_currency,
+      transactions.out_amount,
+      transactions.out_currency,
+      transactions.date_of_transaction,
+      customers.surname,
+      customers.othernames      
+      ")
     render json: transactions, status: 200
   end
 
@@ -23,7 +35,6 @@ class Api::V1::TransactionsController < ApplicationController
 
   def show
     transaction = Transaction.find_by(id: params[:id])
-    render json: transaction, status: 200
-   
+    render json: transaction, status: 200   
   end
 end

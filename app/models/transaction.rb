@@ -1,4 +1,5 @@
 class Transaction < ApplicationRecord
+  self.implicit_order_column = 'created_at'
 #   associations 
   belongs_to :customer
 
