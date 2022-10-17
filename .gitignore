@@ -30,4 +30,4 @@
 # Ignore this file--contains personal notes.
 development-process.md
 # Ignore database configs for now.
-/config/database.yml
+# /config/database.yml
