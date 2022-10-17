@@ -49,8 +49,15 @@ All tests should be green
 
 ## Sample Requests
 
+The API is curently hosted here
+https://aza-finance-fx-api.herokuapp.com/api/v1
+
+Postman collection
+
+https://www.getpostman.com/collections/79a63b37a6dfa2961b36
+
 ### create transaction
-- Endpoint: {base_url}/api/v1/transactions
+- Endpoint: {base_url}/transactions
 - Request Method: POST
 - Body
 ```
@@ -81,7 +88,7 @@ All tests should be green
 ```
 ### fetch all transactions
 
-- Endpoint: {base_url}/api/v1/transactions
+- Endpoint: {base_url}/transactions
 - Request Method: GET
 ### response:
 ```
@@ -162,7 +169,7 @@ All tests should be green
 ```
 ### fetch one transaction
 
-- Endpoint: {base_url}/api/v1/transactions
+- Endpoint: {base_url}/transactions
 - Request Method: GET
 ### response:
 ```
