@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe 'Transactions API' , type: :request do
     # Initialize the test data
     let!(:customer) { create(:customer) }
-    let!(:transactions) { create_list(:transaction, 20, customer_id: customer.id) }
+    let!(:transactions) { create_list(:transaction, 10, customer_id: customer.id) }
     let(:customer_id) { customer.id }
     let(:id) { transactions.first.id }
     # Test suite for GET /api/v1/transactions
@@ -16,7 +16,7 @@ RSpec.describe 'Transactions API' , type: :request do
         end
   
         it 'returns all transactions' do
-          expect(JSON.parse(response.body).size).to eq(20)
+          expect(JSON.parse(response.body).size).to eq(10)
         end
       end
     end
