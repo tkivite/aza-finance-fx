@@ -37,7 +37,7 @@ Shoulda::Matchers.configure do |config|
   end
 end
 RSpec.configure do |config|
-
+  # config.include ApiHelpers
   # add `FactoryBot` methods
   config.include FactoryBot::Syntax::Methods
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.

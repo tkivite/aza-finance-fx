@@ -35,6 +35,10 @@ class Api::V1::TransactionsController < ApplicationController
 
   def show
     transaction = Transaction.find_by(id: params[:id])
-    render json: transaction, status: 200   
+    if transaction
+      render json: transaction, status: 200   
+    else
+      render  nil, status: 404 
+    end
   end
 end
