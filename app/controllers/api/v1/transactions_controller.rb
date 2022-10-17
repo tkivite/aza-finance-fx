@@ -1,6 +1,7 @@
 class Api::V1::TransactionsController < ApplicationController
   def index
     # transactions = Transaction.all
+    @transactions = Transaction
     transactions = Transaction.joins(:customer)
     .order(created_at: :desc)
     .select(
@@ -12,7 +13,7 @@ class Api::V1::TransactionsController < ApplicationController
       transactions.date_of_transaction,
       customers.surname,
       customers.othernames      
-      ")
+      ").paginate(:page => params[:page], :per_page => ENV["DATA_PAGE_SIZE"])
     render json: transactions, status: 200
   end
 
