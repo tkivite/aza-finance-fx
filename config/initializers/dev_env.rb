@@ -2,3 +2,4 @@ ENV["DEV_DB_URL"] = "postgres://postgres:postgres@localhost/aza_finance_fx_devel
 ENV["TEST_DB_URL"] = "postgres://postgres:postgres@localhost/aza_finance_fx_test"
 ENV["PROD_DB_URL"] = "postgres://postgres:postgres@localhost/aza_finance_fx_production"
 ENV["DATA_PAGE_SIZE"] = "15"
+ENV["JWT_TOKEN_KEY"] = "SAMPLEKEYisawesome12309872"

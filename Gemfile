@@ -37,6 +37,12 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 # pagination
+
+gem 'jwt'
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
+gem 'simple_command'
+
 gem 'will_paginate'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem  

@@ -1,7 +1,6 @@
 class Api::V1::TransactionsController < ApplicationController
   def index
-    # transactions = Transaction.all
-    # @transactions = Transaction
+    
     transactions = Transaction.joins(:customer)
     .order(created_at: :desc)
     .select(
