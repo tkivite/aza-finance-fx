@@ -35,17 +35,12 @@ class Api::V1::TransactionsController < ApplicationController
 
   def update
     transaction = Transaction.find_by(id: params[:id])
-
-    transaction.in_amount = params[:in_amount]
-    transaction.in_currency = params[:in_currency]
-    transaction.out_amount = params[:out_amount]
-    transaction.out_currency = params[:out_currency]
-     
-    if transaction.save
+    if transaction.update(update_params)
       render json: transaction, status: 200
     else
       render json: {error: transaction.errors.objects.first.full_message}, status: 422
     end
+     
   end
 
 
@@ -57,4 +52,11 @@ class Api::V1::TransactionsController < ApplicationController
       render  nil, status: 404 
     end
   end
+
+private
+def update_params
+  params.permit(:in_amount,:in_currency,:out_amount,:out_currency)
+
+end
+
 end
