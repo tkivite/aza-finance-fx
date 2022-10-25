@@ -14,4 +14,7 @@ RSpec.describe Transaction, type: :model do
   it { should validate_presence_of(:date_of_transaction) }
   it { should validate_numericality_of(:in_amount) }
   it { should validate_numericality_of(:out_amount) }
+  it { should validate_numericality_of(:in_amount).is_greater_than(0)}
+  it { should validate_numericality_of(:out_amount).is_greater_than(0) }
+
 end

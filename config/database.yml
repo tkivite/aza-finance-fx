@@ -65,8 +65,6 @@ test:
   # url: <%= ENV["TEST_DB_URL"] %>
   database: aza_finance_fx_test
   username: postgres
-
-  # The password associated with the postgres role (username).
   password: postgres
   host: localhost
 

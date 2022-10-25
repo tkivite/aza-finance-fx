@@ -15,7 +15,7 @@ class Api::V1::TransactionsController < ApplicationController
       ").paginate(:page => params[:page], :per_page => ENV["DATA_PAGE_SIZE"])
     render json: transactions, status: 200
   end
-
+  
   def create
     transaction = Transaction.new(
       in_amount: params[:in_amount],
@@ -32,6 +32,16 @@ class Api::V1::TransactionsController < ApplicationController
     end
   end
 
+  def update
+    transaction = Transaction.find_by(id: params[:id])
+    if transaction.update(update_params)
+      render json: transaction, status: 200
+    else
+      render json: {error: transaction.errors.objects.first.full_message}, status: 422
+    end
+     
+  end
+
 
   def show
     transaction = Transaction.find_by(id: params[:id])
@@ -41,4 +51,11 @@ class Api::V1::TransactionsController < ApplicationController
       render  nil, status: 404 
     end
   end
+
+private
+def update_params
+  params.permit(:in_amount,:in_currency,:out_amount,:out_currency)
+
+end
+
 end
